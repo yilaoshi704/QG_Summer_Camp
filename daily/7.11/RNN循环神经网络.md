@@ -52,6 +52,8 @@
 
 - 引入门控机制，输入门，遗忘门，输出门
 
+- 交叉熵损失，F_nll_loss(F.log_softmax(x, dim=1))
+
 <img src="C:/Users/张奕霖/AppData/Roaming/Typora/typora-user-images/image-20240711203405207.png" alt="image-20240711203405207" style="zoom:50%;" />
 
 #### 2.核心
@@ -73,7 +75,7 @@ w权重，h~t-1~前一刻状态，同理x~t~当前输入，b~t~偏置，$\sigma$
 3.API
 
 ```
-torch.nn.LSTM(input_size,hidden_size,num_layers,batch_first,bidirectional,dropout,bidirectional)
+torch.nn.LSTM(input_size,hidden_size,num_layers,batch_first,bidirectional,dropout)
 ```
 
 <img src="https://yilaoshi.oss-cn-guangzhou.aliyuncs.com/picture/image-20240711210636967.png" alt="image-20240711210636967" style="zoom: 50%;" />
@@ -92,6 +94,22 @@ c_n：shape 为（num_layers * num_directions, batch, hidden_size）
 
 #### 补充：Embedding
 
+将离散数据映射为连续变量，捕捉潜在关系——将文本转换为连续向量，基于分布式假设捕捉语义信息。
+
+```
+Image Embedding（图像嵌入）
+定义与目的：图像嵌入是将图像转换为低维向量，以简化处理并保留关键信息供机器学习使用。
+方法与技术：利用深度学习模型（如CNN）抽取图像特征，通过降维技术映射到低维空间，训练优化嵌入向量。
+应用与优势：图像嵌入广泛应用于图像分类、检索等任务，提升模型性能，降低计算需求，增强泛化能力。
+```
+
+```
+Word Embedding（词嵌入）
+定义与目的：词嵌入是将单词映射为数值向量，以捕捉单词间的语义和句法关系，为自然语言处理任务提供有效的特征表示。
+方法与技术：词嵌入通过预测单词上下文（如Word2Vec）或全局词频统计（如GloVe）来学习，也可使用深度神经网络捕捉更复杂的语言特征。
+应用与优势：词嵌入广泛应用于文本分类、机器翻译等自然语言处理任务，有效提升模型性能，因其能捕捉语义信息和缓解词汇鸿沟问题。
+```
+
 ```python
 torch.nn.Embedding(num_embeddings,  # 词典单词数
                    embedding_dim,  # 你希望将每个词映入几维的向量
@@ -106,4 +124,5 @@ torch.nn.Embedding(num_embeddings,  # 词典单词数
                    dtype=None)
 ```
 
-#### 3.代码
+#### 3.实战：IMBD文本情感分类
+

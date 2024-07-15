@@ -198,7 +198,7 @@ nn.MaxPool2d(kernel_size=2, stride=2) 池化后特征图缩小一半一半 16\*1
 
 ### 5.1 LeNet-5
 
-LeNet-5是Yann Lecun等人于1998年提出的卷积神经网络模型，被广泛应用于手写数字识别等任务。LeNet-5的结构相对简单，包含了两个卷积层和三个全连接层。卷积层使用了5x5的卷积核，并通过**sigmoid**激活函数引入了非线性。池化层则使用了2x2的平均池化操作，降低了特征图的尺寸。LeNet-5通过在卷积层和全连接层之间交替使用卷积和池化操作，从而实现了对输入图像的特征提取和分类。
+LeNet-5是Yann Lecun等人于1998年提出的卷积神经网络模型，被广泛应用于手写数字识别等任务。LeNet-5的结构相对简单，包含了两个卷积层和三个全连接层。卷积层使用了5x5的卷积核，并通过 引入了非线性。池化层则使用了2x2的平均池化操作，降低了特征图的尺寸。LeNet-5通过在卷积层和全连接层之间交替使用卷积和池化操作，从而实现了对输入图像的特征提取和分类。
 
 最开始用于处理灰度图
 
@@ -241,7 +241,7 @@ AlexNet是由Alex Krizhevsky等人于2012年提出的卷积神经网络模型，
 
 Dropout层：随机丢弃，正则化，避免过拟合
 
-<img src="https://yilaoshi.oss-cn-guangzhou.aliyuncs.com/picture/image-20240710154002515.png" alt="image-20240710154002515" style="zoom:33%;" />
+<img src="https://yilaoshi.oss-cn-guangzhou.aliyuncs.com/picture/image-20240710154002515.png" alt="image-20240710154002515" style="zoom: 50%;" />
 
 ```python
 class AlexNet(nn.Module):
