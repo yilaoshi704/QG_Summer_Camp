@@ -109,3 +109,4 @@ if __name__ == "__main__":
         plt.title('Training Loss over Epochs')
         plt.legend()
         plt.show()
+
